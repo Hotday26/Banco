@@ -1,0 +1,100 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+using namespace std;
+
+int main(){
+	
+	int N, tipo, contM = 0, contD=0, contR=0, D=0, R=0;
+	
+	double monto, ToTD=0, ToTR=0, promD=0;
+	
+	cout<<"Ingrese el numero de transacciones que se hicieron: ";
+	
+	cin>>N;
+	
+	for(int i = 0; i < N; i++){
+	
+	
+	cout<<"Seleccione una de las siguientes opciones\n";
+	
+	cout<<"[1] para depositos\n[2] para retiros\n";
+	
+	cin>>tipo;
+	
+	switch(tipo){
+		
+		case 1:
+			
+			cout<<"Se selecciono la opcion Deposito\n";
+			
+			cout<<"Ingrese el monto a depositar: ";
+			
+			cin>>D;
+			
+			ToTD += D;
+			
+			if(D > 50000)
+			
+			contM++;
+			
+			contD++;
+			
+			break;
+			
+		case 2:
+			
+			cout<<"Se selecciono la opcion Retiro\n";
+			
+			cout<<"Ingrese el monto a retirar: ";
+			
+			cin>>R;
+			
+			ToTR += R;
+			
+			contR++;
+			
+			break;
+			
+		default:
+			
+			cout<<"Opcion ingresada de forma erronea";
+			
+			getch();
+			
+			break;
+	}
+	
+}
+
+cout<<"\nLa cantidad de dinero que se deposito: "<<ToTD;
+
+cout<<"\nLa cantidad de dinero que se retiro: "<<ToTR;
+
+cout<<"\nLa cantidad de Deposito mayores de 50.000: "<<contM;
+
+if(ToTD == 0)
+
+promD = 0;
+
+else
+
+promD = ToTD / contD;
+
+cout<<"\nEl promedio de Bolivares depositados: "<<promD;
+
+if(contD > contR)
+
+cout<<"\nHubo mayor cantidad de Depositos";
+
+else if(contD < contR)
+
+cout<<"\nHubo mayor cantidad de Retiros";
+
+else
+
+cout<<"\nTantos Depositos y Retiros son iguales";
+	
+	return 0;
+}
